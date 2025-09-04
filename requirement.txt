@@ -1,0 +1,7 @@
+streamlit
+google-generativeai
+langchain_community
+langchain
+langchain-google-genai
+langchain-core
+pypdf
