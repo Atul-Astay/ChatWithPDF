@@ -3,7 +3,7 @@ import google.generativeai as genai
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
-from langchain_community.vectorstores import Chroma
+from langchain_community.vectorstores import FAISS
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.chains import create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
@@ -26,7 +26,7 @@ text_splitter = RecursiveCharacterTextSplitter(chunk_size = 1000,
 doc = text_splitter.split_documents(data)
 
 # Vector embedding and vercor storev
-vectorstore = Chroma.from_documents(documents = doc,
+vectorstore = FAISS.from_documents(documents = doc,
                      embedding = GoogleGenerativeAIEmbeddings(model = "models/embedding-001"))
 
 # Retriver
